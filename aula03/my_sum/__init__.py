@@ -9,7 +9,12 @@ def sum(list_values):
     return total
 
 
-class Card:
+class Cardnumber = "5255901222280001"
+cardholder_name = "JOAO DA SILVA"
+#cardholder_name = "Gabriel marques da slilva abreu Gabriel marques da silva abreu Gabriel marques da silva abreu Gabriel marques da silva abreu Gabriel marques da silva a"
+security_code = "123"
+expiration_month = "06"
+expiration_year = "2027":
     def __init__(self, number):
         self.number = number
 

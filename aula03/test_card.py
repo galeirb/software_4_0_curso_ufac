@@ -9,10 +9,10 @@ class TestCard(unittest.TestCase):
         self.assertTrue(card.validate_number())
 
         card = Card("51559012222800012")
-        self.assertFalse(card.validate_number())
+        self.assertFalse(card.validate_number(), 'larger number of characters')
 
-        card = Card("515590122228000a")
-        self.assertFalse(card.validate_number())
+        card = Card("5155901222280001")
+        self.assertFalse(card.validate_number(), 'smaller amount of characters')
 
 
 
