@@ -14,5 +14,5 @@ for i in range(cards_qtd):
     print('Cartão número ' + str(i) + ':')
     credit_card_1 = CreditCard(cardholder_name, number, expiration_month, 
                                expiration_year, security_code)
-    credit_card_1.validar_credit_card()
+    credit_card_1.validate_credit_card()
     print('------------------')
