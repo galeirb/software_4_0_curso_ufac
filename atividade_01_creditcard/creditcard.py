@@ -1,5 +1,4 @@
-from datetime import date
-from datetime import datetime
+from datetime import date, datetime
 
 
 class CreditCard:
@@ -24,11 +23,10 @@ class CreditCard:
         c = self.validar_expiration()
         d = self.validar_security_code()
         e = self.validar_company()
-        if ((a and b and c and d and e) == True):
+        if a and b and c and d and e is True:
             print('Informações inseridas corretamente!')  
 
     def validar_cardholder_name(self):
-        #print('Processo de validar o nome!')
         if len(self.cardholder_name) <= self.cardholder_name_max_size:
             return True
         else:
@@ -37,7 +35,6 @@ class CreditCard:
             return False
 
     def validar_number(self):
-        #print('Processo de validar o número!')
         if len(self.number) == self.number_size:
             return True
         else:
@@ -59,7 +56,6 @@ class CreditCard:
 
     def validar_year(self):
         if len(self.expiration_year) == self.expiration_year_size:
-            #print('processo de validação do ano realizado!')
             return True
         else:
             print('O ano não possui ' + 
@@ -67,13 +63,14 @@ class CreditCard:
             return False
 
     def validar_expiration(self):
-        if (self.validar_year() == True) and (self.validar_month() == True):
+        if self.validar_year() and self.validar_month() is True:
             data_today = date.today()
             data_today = datetime.strptime(str(data_today.month) + '/' 
                                            + str(data_today.year), 
                                            '%m/%Y')
-            data_expiration = datetime.strptime(str(self.expiration_month)+ '/'
-                                                + str(self.expiration_year), 
+            data_expiration = datetime.strptime(str(self.expiration_month) +
+                                                '/' +
+                                                str(self.expiration_year),
                                                 '%m/%Y')
             if data_expiration >= data_today:
                 return True
@@ -84,7 +81,6 @@ class CreditCard:
             return False      
 
     def validar_security_code(self):
-        #print('Processo de validar o código de seguraça!')
         if len(self.security_code) == self.security_code_size:
             return True
         else:
@@ -96,10 +92,10 @@ class CreditCard:
         len_number_company_an_number = len(str(self.company_an_number[0]))
         len_number_company_two_number = len(str(self.company_two_number[0]))
         if (self.number[:len_number_company_an_number] in 
-            self.company_an_number):
+                self.company_an_number):
             return True
-        elif (self.number[:len_number_company_two_number] in 
-              self.company_two_number):
+        elif (self.number[:len_number_company_two_number] in
+                self.company_two_number):
             return True
         else:
             print('Bandeira do cartão não aceita!')
